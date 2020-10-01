@@ -1,0 +1,46 @@
+{% extends 'manager_app/base.html' %}
+
+{% block container %}
+
+<div class = 'row'>
+    <h2 class = "center">{{ page_title }}</h2>
+
+</div>
+<br>
+<div class = 'row'>
+    <label class="badge badge-pill badge-primary">Total Value {{ total_value }} {{ currency }}</label>
+    <label class="badge badge-pill badge-success">Paid Value {{ paid_value }} {{ currency }}</label>
+    <label class="badge badge-pill badge-warning">Remaining Value {{ diff }} {{ currency }}</label>
+</div>
+ 
+<div class="row">
+    <div class="col-8">
+        <h5>Data</h5>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Value</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in object_list %}
+                <tr>
+                    <td>{{ order.date_added|date }}</td>
+                    <td>{{ order.title }}</td>
+                    <!-- <td>{{ order.tag_category }}</td> -->
+                    <td>{{ order.tag_final_value }}</td>
+                    <td>{{ order.tag_is_paid }}</td>
+                </tr>
+                {% empty %}
+                        <tr></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    {% endblock %}

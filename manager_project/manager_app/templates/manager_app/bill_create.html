@@ -1,0 +1,24 @@
+{% extends "manager_app/base.html" %}
+
+{% block content %}
+<div class = 'container bill_create'>
+
+<h1>New Bill</h1>
+
+
+
+<form method = "POST">
+<div class="form-group">
+
+{% csrf_token %}
+{{form.as_p}}
+<button type="submit" class = 'btn btn-primary' >Save</button>
+<a href="{{ request.path }}" class="btn btn-warning">Reset Form</a>
+<a href="{% url 'manager_app:add_benificiary' %}" class="btn btn-primary">Add Benificiary</a>
+
+</div>
+</form>
+
+</div>
+
+{% endblock %}

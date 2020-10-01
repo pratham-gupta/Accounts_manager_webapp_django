@@ -1,0 +1,82 @@
+{% extends 'manager_app/base.html' %}
+{% block content %}
+<div class='container-fluid'>
+
+    <div class=row>
+        <h2 class ='center'>{{ page_title }}</h2>  
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col">
+            <div class='container'>
+            <h5>Data</h5>
+            <table class="table table-bordered table-striped table-dark table-hover table-sm">
+                <thead>
+                    
+                    <tr>
+                        
+                        
+                
+                        
+                        <th>Benificiary Name</th>
+                      
+                        <th>Balance</th>
+                     
+                   
+                    </tr>
+                
+                </thead> 
+                <tbody>
+                    {% for bill in object_list %}
+                    <tr class = "table-row" data-href=" ">
+                        
+                        <td>{{ bill.Benificiary_Name }}</td>
+                        <td>{{ bill.tag_balance }}</td>
+                    
+                    </tr>
+                
+                    {% empty %}
+                    <tr></tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <div class="col">
+        <div class='container'>
+
+        <h4>Analysis</h4>
+        
+        <h3>Filters</h3>
+        <form method='get'>
+            <div class='form-group'>
+                <label for="search_name"><h4>Search( by Benificiary Name)</h4></label>
+                <input class = 'form-control'
+                name = 'search_name'
+                {% if search_name %}
+                value = '{{ search_name }}' placeholder="Search Benificiary Name"
+                
+                {% else %}
+                placeholder="Search Benificiary Name"
+                {% endif %}>
+                {% if search_name %}
+                <h5>{{ benif_bal }}</h5>
+                {% endif %}
+                
+
+            </div>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{{ request.path }}" class="btn btn-warning">Reset Filters</a>
+        </form>
+          
+    </div>
+  
+    </div>
+</div>
+</div>
+
+{%  endblock %}

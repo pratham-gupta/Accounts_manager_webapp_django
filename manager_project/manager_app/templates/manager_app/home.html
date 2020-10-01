@@ -1,0 +1,127 @@
+{% extends "manager_app/base.html" %}
+
+
+{% block content %}
+
+<div class='row'>
+    <div class='col'>
+        <h4>Bills</h4>
+        <table class="table table-bordered table-striped table-dark table-hover table-sm">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Date</th>
+                    <th scope="col">Bill No</th>
+                    <th scope="col">Benificiary Name</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Bill type</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for bill in bills %}
+                <tr>
+                    
+                     <td>{{ bill.date_added|date }}</td>
+                        <td>{{ bill.title }}</td>
+                        <td>{{ bill.benificiary_name }}</td>
+                        <td>{{ bill.tag_final_value }}</td>
+                        <td>{{ bill.tag_category }}</td>
+
+                </tr>
+                {% empty %}
+                      <tr>
+                          <td colspan="4">No data</td>
+                      </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        <a href="/admin_access/manager_app/bill/" class="btn btn-primary">Edit</a>
+
+    </div>
+    <div class='col'>
+        <h4>Payroll</h4>
+        <table class="table table-bordered table-striped table-dark table-hover table-sm">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Date</th>
+                    <th scope="col">Person Name</th>
+                    <th scope="col">Person Category</th>
+                    <th scope="col">Payroll Value(Rs)</th>
+                    <th scope="col">Amount Paid(Rs)</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for bill in payroll %}
+                <tr>
+                   
+                     <td>{{ bill.date_added|date }}</td>
+                        <td>{{ bill.person }}</td>
+                        <td>{{ bill.category }}</td>
+                        <td>{{ bill.final_value }}</td>
+                        <td>{{ bill.paid_value }}</td>
+
+
+                </tr>
+                {% empty %}
+                      <tr>
+                          <td colspan="4">No data</td>
+                      </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        <a href="/admin_access/manager_app/payroll/" class="btn btn-primary">Edit-Payroll</a>
+
+    </div>
+
+    <div class='col'>
+        <h4>General Expenses</h4>
+        <table class="table table-bordered table-striped table-dark table-hover table-sm">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Date</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Final Value</th>
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for bill in expenses %}
+                <tr>
+                   
+                     <td>{{ bill.date_added|date }}</td>
+                        <td>{{ bill.title }}</td>
+                        <td>{{ bill.category }}</td>
+                        <td>{{ bill.final_value }}</td>
+                        
+
+
+                </tr>
+                {% empty %}
+                      <tr>
+                          <td colspan="4">No data</td>
+                      </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        <a href="/admin_access/manager_app/genericexpense/" class="btn btn-primary">Edit</a>
+
+    </div>
+
+
+
+
+
+
+    </div>
+
+
+{% endblock %}

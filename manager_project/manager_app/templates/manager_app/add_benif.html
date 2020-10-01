@@ -1,0 +1,22 @@
+{% extends "manager_app/base.html" %}
+<!-- <h3>New Expense</h3> -->
+{% block content %}
+<div class = 'container expense_create'>
+
+<h1>Add Benificiary</h1>
+
+
+
+<form method = "POST">
+<div class="form-group">
+
+{% csrf_token %}
+{{form.as_p}}
+<button type="submit" class = 'btn btn-primary' >Save</button>
+<a href="{{ request.path }}" class="btn btn-warning">Reset Form</a>
+</div>
+</form>
+
+</div>
+
+{% endblock %}
