@@ -74,8 +74,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'manager_project.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+Database
+https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # DATABASES = {
 #     'default': {
@@ -147,7 +147,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIR = [STATIC_DIR,]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'manager_app/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'www','manager_app/static')
 
 LOGIN_REDIRECT_URL = '/home/'
 LOGOUT_REDIRECT_URL = '/'
