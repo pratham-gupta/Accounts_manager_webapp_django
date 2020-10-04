@@ -1,4 +1,4 @@
-asgiref @ file:///tmp/build/80754af9/asgiref_1594338739818/work
+asgiref
 certifi==2020.6.20
 Django==3.0.3
 pytz==2020.1

@@ -74,38 +74,44 @@ TEMPLATES = [
 WSGI_APPLICATION = 'manager_project.wsgi.application'
 
 
-Database
-https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'account_manager',
-#         'USER': 'account_manager',
-#         'PASSWORD': 'prathamgupta',
-#         'HOST' : 'account-manager.cvutbom8jwso.us-east-2.rds.amazonaws.com',
-#         'PORT': '5432',
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'account_manager',
+        'USER': 'account_manager',
+        'PASSWORD': 'prathamgupta',
+        'HOST' : 'account-manager.cvutbom8jwso.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
+    }
+}
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
+
+# if 'RDS_DB_NAME' in os.environ:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': os.environ['RDS_DB_NAME'],
+#             'USER': os.environ['RDS_USERNAME'],
+#             'PASSWORD': os.environ['RDS_PASSWORD'],
+#             'HOST': os.environ['RDS_HOSTNAME'],
+#             'PORT': os.environ['RDS_PORT'],
+#         }
 #     }
-# }
-
-if 'RDS_DB_NAME' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['RDS_DB_NAME'],
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
-        }
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         }
+#     }
 
 
 # Password validation
@@ -147,7 +153,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIR = [STATIC_DIR,]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'www','manager_app/static')
+STATIC_ROOT = os.path.join(BASE_DIR,'manager_app/static')
 
 LOGIN_REDIRECT_URL = '/home/'
 LOGOUT_REDIRECT_URL = '/'
