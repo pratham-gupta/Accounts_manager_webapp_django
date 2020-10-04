@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'account_manager',
         'USER': 'account_manager',
         'PASSWORD': 'prathamgupta',
-        'HOST' : 'account-manager.cvutbom8jwso.us-east-2.rds.amazonaws.com',
+        'HOST' : 'account-manager.cyhdglljy7se.ap-south-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
